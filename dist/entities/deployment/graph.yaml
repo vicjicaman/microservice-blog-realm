@@ -6,7 +6,7 @@ metadata:
   labels:
     app: blog-graph-deployment
     moduleid: microservice-blog-realm
-    version: 1.70.0-create-common-realm-prod
+    version: 1.70.0-master
 spec:
   replicas: 2
   selector:
