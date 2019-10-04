@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "microservice-config": {
+      "url": "github.com:vicjicaman/microservice-config.git",
+      "version": "1.70.2-master"
+    },
+    "microservice-resources-config": {
+      "url": "github.com:vicjicaman/microservice-resources-config.git",
+      "version": "file:./../microservice-resources-config"
+    },
+    "microservice-blog-config": {
+      "url": "github.com:vicjicaman/microservice-blog-config.git",
+      "version": "file:./../microservice-blog-config"
+    },
+    "microservice-auth-config": {
+      "url": "github.com:vicjicaman/microservice-auth-config.git",
+      "version": "1.70.6-master"
+    }
+  },
+  "config": [
+    {
+      "name": "WEB_DEPLOYMENT_NAME",
+      "value": "blog-web-deployment"
+    },
+    {
+      "name": "GRAPH_DEPLOYMENT_NAME",
+      "value": "blog-graph-deployment"
+    }
+  ]
+}

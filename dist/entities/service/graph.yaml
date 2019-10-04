@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-graph-service
+  namespace: microservices-namespace
+  labels:
+    moduleid: microservice-blog-realm
+    version: 1.70.8-master
+spec:
+  type: NodePort
+  selector:
+    app: blog-graph-deployment
+  ports:
+    -
+      name: port
+      port: 4000
