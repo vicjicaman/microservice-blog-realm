@@ -6,11 +6,11 @@
     },
     "microservice-resources-config": {
       "url": "github.com:vicjicaman/microservice-resources-config.git",
-      "version": "1.70.0-create-common-realm-prod"
+      "version": "1.70.3-master"
     },
     "microservice-blog-config": {
       "url": "github.com:vicjicaman/microservice-blog-config.git",
-      "version": "1.70.0-create-common-realm-prod"
+      "version": "1.70.1-master"
     },
     "microservice-auth-config": {
       "url": "github.com:vicjicaman/microservice-auth-config.git",
