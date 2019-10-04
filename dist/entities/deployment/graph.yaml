@@ -6,7 +6,7 @@ metadata:
   labels:
     app: blog-graph-deployment
     moduleid: microservice-blog-realm
-    version: 1.70.1-master
+    version: 1.70.0-blog-layout-upstream-dev
 spec:
   replicas: 2
   selector:
