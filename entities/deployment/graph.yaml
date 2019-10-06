@@ -6,7 +6,7 @@ metadata:
   labels:
     app: '${GRAPH_DEPLOYMENT_NAME}'
     moduleid: microservice-blog-realm
-    version: 1.70.2-master
+    version: 1.70.3-master
 spec:
   replicas: 2
   selector:
@@ -20,7 +20,7 @@ spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-blog-graph-container:1.70.1-master'
+          image: 'repoflow/microservice-blog-graph-container:1.70.2-master'
           env:
             -
               name: BLOG_ROUTE_GRAPH
@@ -56,8 +56,26 @@ spec:
                   name: '${CACHE_SECRET_NAME@microservice-resources-config}'
                   key: password
             -
-              name: BLOG_DATA_INTERNAL_URL
+              name: RESOURCES_DATA_INTERNAL_URL
               value: '${DATA_INTERNAL_URL@microservice-resources-config}'
+            -
+              name: RESOURCES_QUEUE_INTERNAL_HOST
+              value: '${QUEUE_INTERNAL_HOST@microservice-resources-config}'
+            -
+              name: RESOURCES_QUEUE_INTERNAL_PORT
+              value: '${QUEUE_INTERNAL_PORT@microservice-resources-config}'
+            -
+              name: RESOURCES_QUEUE_SECRET_USER
+              valueFrom:
+                secretKeyRef:
+                  name: '${QUEUE_SECRET_NAME@microservice-resources-config}'
+                  key: user
+            -
+              name: RESOURCES_QUEUE_SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: '${QUEUE_SECRET_NAME@microservice-resources-config}'
+                  key: password
           ports:
             -
               containerPort: '${GRAPH_INTERNAL_PORT@microservice-blog-config}'
