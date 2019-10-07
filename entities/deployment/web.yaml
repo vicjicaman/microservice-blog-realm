@@ -6,7 +6,7 @@ metadata:
   labels:
     app: '${WEB_DEPLOYMENT_NAME}'
     moduleid: microservice-blog-realm
-    version: 1.70.3-master
+    version: 1.70.0-rm-cache-vol-prod
 spec:
   replicas: 2
   selector:
