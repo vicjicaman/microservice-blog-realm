@@ -1,81 +1,77 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: '${GRAPH_DEPLOYMENT_NAME}'
-  namespace: '${NAMESPACE@microservice-config}'
+  name: "${GRAPH_DEPLOYMENT_NAME}"
+  namespace: "${NAMESPACE@microservice-config}"
   labels:
-    app: '${GRAPH_DEPLOYMENT_NAME}'
+    app: "${GRAPH_DEPLOYMENT_NAME}"
     moduleid: microservice-blog-realm
     version: 1.70.3-master
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: '${GRAPH_DEPLOYMENT_NAME}'
+      app: "${GRAPH_DEPLOYMENT_NAME}"
   template:
     metadata:
       labels:
-        app: '${GRAPH_DEPLOYMENT_NAME}'
+        app: "${GRAPH_DEPLOYMENT_NAME}"
     spec:
       containers:
-        -
-          name: app
-          image: 'repoflow/microservice-blog-graph-container:1.70.2-master'
+        - name: app
+          image: "repoflow/microservice-blog-graph-container:1.70.2-master"
           env:
-            -
-              name: BLOG_ROUTE_GRAPH
-              value: '${GRAPH_BASE_ROUTE@microservice-blog-config}'
-            -
-              name: BLOG_INTERNAL_PORT_GRAPH
-              value: '${GRAPH_INTERNAL_PORT@microservice-blog-config}'
-            -
-              name: AUTH_INTERNAL_HOST_CACHE
-              value: '${CACHE_INTERNAL_HOST@microservice-auth-config}'
-            -
-              name: AUTH_INTERNAL_PORT_CACHE
-              value: '${CACHE_INTERNAL_PORT@microservice-auth-config}'
-            -
-              name: AUTH_SECRET_PASSWORD_CACHE
+            - name: BLOG_ROUTE_GRAPH
+              value: "${GRAPH_BASE_ROUTE@microservice-blog-config}"
+            - name: BLOG_INTERNAL_PORT_GRAPH
+              value: "${GRAPH_INTERNAL_PORT@microservice-blog-config}"
+            - name: AUTH_INTERNAL_HOST_CACHE
+              value: "${CACHE_INTERNAL_HOST@microservice-auth-config}"
+            - name: AUTH_INTERNAL_PORT_CACHE
+              value: "${CACHE_INTERNAL_PORT@microservice-auth-config}"
+            - name: AUTH_SECRET_PASSWORD_CACHE
               valueFrom:
                 secretKeyRef:
-                  name: '${CACHE_SECRET_NAME@microservice-auth-config}'
+                  name: "${CACHE_SECRET_NAME@microservice-auth-config}"
                   key: password
-            -
-              name: AUTH_ACCOUNT_INTERNAL_URL_GRAPH
-              value: '${ACCOUNT_GRAPH_INTERNAL_URL@microservice-auth-config}'
-            -
-              name: RESOURCES_CACHE_INTERNAL_HOST
-              value: '${CACHE_INTERNAL_HOST@microservice-resources-config}'
-            -
-              name: RESOURCES_CACHE_INTERNAL_PORT
-              value: '${CACHE_INTERNAL_PORT@microservice-resources-config}'
-            -
-              name: RESOURCES_CACHE_SECRET_PASSWORD
+            - name: AUTH_ACCOUNT_INTERNAL_URL_GRAPH
+              value: "${ACCOUNT_GRAPH_INTERNAL_URL@microservice-auth-config}"
+            - name: RESOURCES_CACHE_INTERNAL_HOST
+              value: "${CACHE_INTERNAL_HOST@microservice-resources-config}"
+            - name: RESOURCES_CACHE_INTERNAL_PORT
+              value: "${CACHE_INTERNAL_PORT@microservice-resources-config}"
+            - name: RESOURCES_CACHE_SECRET_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: '${CACHE_SECRET_NAME@microservice-resources-config}'
+                  name: "${CACHE_SECRET_NAME@microservice-resources-config}"
                   key: password
-            -
-              name: RESOURCES_DATA_INTERNAL_URL
-              value: '${DATA_INTERNAL_URL@microservice-resources-config}'
-            -
-              name: RESOURCES_QUEUE_INTERNAL_HOST
-              value: '${QUEUE_INTERNAL_HOST@microservice-resources-config}'
-            -
-              name: RESOURCES_QUEUE_INTERNAL_PORT
-              value: '${QUEUE_INTERNAL_PORT@microservice-resources-config}'
-            -
-              name: RESOURCES_QUEUE_SECRET_USER
+            - name: RESOURCES_DATA_INTERNAL_URL
+              value: "${DATA_INTERNAL_URL@microservice-resources-config}"
+            - name: RESOURCES_DATA_NAME
+              value: "${DATA_NAME@microservice-resources-config}"
+            - name: RESOURCES_DATA_SECRET_USER
               valueFrom:
                 secretKeyRef:
-                  name: '${QUEUE_SECRET_NAME@microservice-resources-config}'
+                  name: "${DATA_SECRET_NAME@microservice-resources-config}"
                   key: user
-            -
-              name: RESOURCES_QUEUE_SECRET_PASSWORD
+            - name: RESOURCES_DATA_SECRET_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: '${QUEUE_SECRET_NAME@microservice-resources-config}'
+                  name: "${DATA_SECRET_NAME@microservice-resources-config}"
+                  key: user_password
+            - name: RESOURCES_QUEUE_INTERNAL_HOST
+              value: "${QUEUE_INTERNAL_HOST@microservice-resources-config}"
+            - name: RESOURCES_QUEUE_INTERNAL_PORT
+              value: "${QUEUE_INTERNAL_PORT@microservice-resources-config}"
+            - name: RESOURCES_QUEUE_SECRET_USER
+              valueFrom:
+                secretKeyRef:
+                  name: "${QUEUE_SECRET_NAME@microservice-resources-config}"
+                  key: user
+            - name: RESOURCES_QUEUE_SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "${QUEUE_SECRET_NAME@microservice-resources-config}"
                   key: password
           ports:
-            -
-              containerPort: '${GRAPH_INTERNAL_PORT@microservice-blog-config}'
+            - containerPort: "${GRAPH_INTERNAL_PORT@microservice-blog-config}"
