@@ -20,7 +20,7 @@ spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-blog-web-container:1.70.3-master'
+          image: 'repoflow/microservice-blog-web-container:1.70.4-master'
           env:
             -
               name: HOST

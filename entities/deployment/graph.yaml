@@ -20,7 +20,7 @@ spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-blog-graph-container:1.70.4-master'
+          image: 'repoflow/microservice-blog-graph-container:1.70.5-master'
           env:
             -
               name: BLOG_ROUTE_GRAPH

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: blog-web-deployment
-  namespace: microservices-namespace
+  namespace: repoflow-blog-namespace
   labels:
     app: blog-web-deployment
     moduleid: microservice-blog-realm
@@ -24,7 +24,7 @@ spec:
           env:
             -
               name: HOST
-              value: www.repoflow.com
+              value: blog.repoflow.com
             -
               name: BLOG_BASE_ROUTE_APP
               value: /blog
@@ -33,10 +33,10 @@ spec:
               value: '3000'
             -
               name: BLOG_EXTERNAL_URL_GRAPH
-              value: 'https://www.repoflow.com/blog/backend/graphql'
+              value: 'https://blog.repoflow.com/blog/backend/graphql'
             -
               name: BLOG_INTERNAL_URL_GRAPH
-              value: 'http://blog-graph-service.microservices-namespace:4000/blog/backend/graphql'
+              value: 'http://blog-graph-service.repoflow-blog-namespace:4000/blog/backend/graphql'
             -
               name: RESOURCES_BASE_ROUTE
               value: /resources

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: blog-graph-service
-  namespace: microservices-namespace
+  namespace: repoflow-blog-namespace
   labels:
     moduleid: microservice-blog-realm
     version: 1.70.8-master
