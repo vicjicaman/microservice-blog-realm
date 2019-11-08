@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: blog-graph-deployment
-  namespace: microservices-namespace
+  namespace: repoflow-blog-namespace
   labels:
     app: blog-graph-deployment
     moduleid: microservice-blog-realm
-    version: 1.70.5-master
+    version: 1.70.6-master
 spec:
   replicas: 2
   selector:
@@ -20,7 +20,7 @@ spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-blog-graph-container:1.70.4-master'
+          image: 'repoflow/microservice-blog-graph-container:1.70.5-master'
           env:
             -
               name: BLOG_ROUTE_GRAPH
@@ -30,7 +30,7 @@ spec:
               value: '4000'
             -
               name: AUTH_INTERNAL_HOST_CACHE
-              value: auth-cache-service.microservices-namespace
+              value: auth-cache-service.repoflow-blog-namespace
             -
               name: AUTH_INTERNAL_PORT_CACHE
               value: '6379'
@@ -42,10 +42,10 @@ spec:
                   key: password
             -
               name: AUTH_ACCOUNT_INTERNAL_URL_GRAPH
-              value: 'http://auth-account-graph-service.microservices-namespace:4000/graphql'
+              value: 'http://auth-account-graph-service.repoflow-blog-namespace:4000/graphql'
             -
               name: RESOURCES_CACHE_INTERNAL_HOST
-              value: resources-cache-service.microservices-namespace
+              value: resources-cache-service.repoflow-blog-namespace
             -
               name: RESOURCES_CACHE_INTERNAL_PORT
               value: '6379'
@@ -57,7 +57,7 @@ spec:
                   key: password
             -
               name: RESOURCES_DATA_INTERNAL_URL
-              value: 'resources-data-service.microservices-namespace:27017'
+              value: 'resources-data-service.repoflow-blog-namespace:27017'
             -
               name: RESOURCES_DATA_NAME
               value: resources
@@ -75,7 +75,7 @@ spec:
                   key: user_password
             -
               name: RESOURCES_QUEUE_INTERNAL_HOST
-              value: resources-queue-service.microservices-namespace
+              value: resources-queue-service.repoflow-blog-namespace
             -
               name: RESOURCES_QUEUE_INTERNAL_PORT
               value: '5672'
