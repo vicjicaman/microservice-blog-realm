@@ -10,11 +10,11 @@
     },
     "microservice-blog-config": {
       "url": "github.com:vicjicaman/microservice-blog-config.git",
-      "version": "1.70.0-deploy-realms-v1-prod"
+      "version": "1.70.2-master"
     },
     "microservice-auth-config": {
       "url": "github.com:vicjicaman/microservice-auth-config.git",
-      "version": "1.70.0-deploy-realms-v1-prod"
+      "version": "1.70.8-master"
     }
   },
   "config": [
