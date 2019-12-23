@@ -23,6 +23,9 @@ spec:
           image: 'repoflow/microservice-blog-graph-container:1.70.5-master'
           env:
             -
+              name: ENV_MODE
+              value: production
+            -
               name: BLOG_ROUTE_GRAPH
               value: '${GRAPH_BASE_ROUTE@microservice-blog-config}'
             -
