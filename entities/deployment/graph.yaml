@@ -6,7 +6,7 @@ metadata:
   labels:
     app: '${GRAPH_DEPLOYMENT_NAME}'
     moduleid: microservice-blog-realm
-    version: 1.70.6-master
+    version: 1.70.7-master
 spec:
   replicas: 2
   selector:
@@ -22,6 +22,9 @@ spec:
           name: app
           image: 'repoflow/microservice-blog-graph-container:1.70.5-master'
           env:
+            -
+              name: ENV_MODE
+              value: production
             -
               name: BLOG_ROUTE_GRAPH
               value: '${GRAPH_BASE_ROUTE@microservice-blog-config}'
