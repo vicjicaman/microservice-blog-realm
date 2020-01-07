@@ -26,6 +26,12 @@ spec:
               name: ENV_MODE
               value: production
             -
+              name: NODE_ENV
+              value: production
+            -
+              name: ENV_LOG_FOLDER
+              value: /env/logs
+            -
               name: HOST
               value: blog.repoflow.com
             -

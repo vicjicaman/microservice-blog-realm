@@ -14,7 +14,7 @@
     },
     "microservice-auth-config": {
       "url": "github.com:vicjicaman/microservice-auth-config.git",
-      "version": "1.70.8-master"
+      "version": "1.70.9-master"
     }
   },
   "config": [
