@@ -6,7 +6,7 @@ metadata:
   labels:
     app: '${WEB_DEPLOYMENT_NAME}'
     moduleid: microservice-blog-realm
-    version: 1.70.0-auth-common-update-prod
+    version: 1.70.8-master
 spec:
   replicas: 2
   selector:
@@ -20,7 +20,7 @@ spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-blog-web-container:1.70.0-auth-common-update-prod'
+          image: 'repoflow/microservice-blog-web-container:1.70.5-master'
           env:
             -
               name: ENV_MODE
