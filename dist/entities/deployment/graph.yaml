@@ -6,7 +6,7 @@ metadata:
   labels:
     app: blog-graph-deployment
     moduleid: microservice-blog-realm
-    version: 1.70.8-master
+    version: 1.70.0-add-prism-prod
 spec:
   replicas: 2
   selector:
